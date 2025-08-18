@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blark</title>
+  <meta name="description" content="Blark – Breathe The Dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0a; --panel:#0f0f10; --text:#f1f1f1; --muted:#a6a6aa; --line:#1a1a1c; --btn:#141416; --accent:#d9d9dc;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:'Cairo',system-ui; background:var(--bg); color:var(--text)}
+    img{max-width:100%; display:block}
+    a{color:inherit; text-decoration:none}
+
+    .wrap{max-width:1100px; margin:auto; padding:20px}
+    .hero{padding:56px 0 28px; text-align:center}
+    .brand{display:flex; align-items:center; gap:10px; justify-content:center; margin-bottom:10px}
+    .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#0f0f10,#1b1b1c); border:1px solid #232326}
+    h1{margin:0; letter-spacing:2px; font-size:clamp(26px,6vw,44px)}
+    .tag{color:var(--muted); margin-top:6px; font-size:clamp(14px,2.6vw,16px)}
+    .bar{height:1px; background:var(--line); margin:22px 0}
+
+    /* Categories */
+    .cats{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:18px 0 8px}
+    .cat{border:1px solid var(--line); background:linear-gradient(180deg,#0e0e10,#0a0a0a); border-radius:14px; padding:18px; text-align:center; font-weight:700; transition:.2s}
+    .cat:hover{transform:translateY(-2px)}
+    .muted{color:var(--muted); font-size:13px}
+
+    /* Products */
+    .products{margin-top:14px}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .card{border:1px solid var(--line); background:linear-gradient(180deg,#101012,#0a0a0a); border-radius:14px; overflow:hidden}
+    .ph{aspect-ratio:1/1.1; background:#0c0c0e}
+    .body{padding:12px}
+    .title{font-weight:700}
+    .price{color:var(--accent)}
+    .btn{display:inline-block; padding:10px 12px; border:1px solid #242427; border-radius:12px; background:var(--btn); margin-top:8px}
+    .btn:hover{transform:translateY(-1px)}
+
+    /* Modal */
+    .modal-backdrop{position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; place-items:center; z-index:50}
+    .modal{width:min(520px,92vw); border:1px solid var(--line); border-radius:16px; background:linear-gradient(180deg,#0f0f11,#0a0a0a); overflow:hidden}
+    .modal-head{display:flex; justify-content:space-between; align-items:center; padding:12px 14px; border-bottom:1px solid var(--line)}
+    .x{background:#141416; border:1px solid #242427; border-radius:10px; padding:6px 10px; cursor:pointer}
+    .modal-media{aspect-ratio:1/1; background:#0d0d0f}
+    .modal-body{padding:14px}
+    .sizes{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0}
+    .size{padding:8px 10px; border:1px solid #2a2a2e; border-radius:10px; cursor:pointer}
+    .size.active{border-color:#4a4a52; background:#141416}
+    .cta{display:block; width:100%; text-align:center; padding:12px; border-radius:12px; background:#131315; border:1px solid #2a2a2e; margin-top:10px}
+
+    /* Responsive */
+    @media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:580px){ .grid{grid-template-columns:1fr} .cats{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>BLARK</h1>
+      </div>
+      <div class="tag">Breathe The Dark</div>
+    </section>
+
+    <div class="bar" aria-hidden="true"></div>
+
+    <!-- CATEGORIES -->
+    <section id="categories">
+      <div class="cats">
+        <button class="cat" onclick="selectCategory('men')">رجال</button>
+        <button class="cat" onclick="selectCategory('women')">نساء</button>
+      </div>
+      <p class="muted" id="hint">اختر قسمًا لعرض المنتجات.</p>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="products" style="display:none">
+      <h3 id="catTitle" style="margin:4px 2px 10px"></h3>
+      <div class="grid" id="prodGrid"></div>
+    </section>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-backdrop" id="backdrop" onclick="closeModal(event)">
+    <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+      <div class="modal-head">
+        <strong id="mTitle">اسم المنتج</strong>
+        <button class="x" onclick="closeModal()">إغلاق</button>
+      </div>
+      <div class="modal-media">
+        <img id="mImg" alt="" style="width:100%; height:100%; object-fit:cover">
+      </div>
+      <div class="modal-body">
+        <div class="muted" id="mPrice">—</div>
+        <div class="sizes" id="sizes"></div>
+        <button class="cta" id="waBtn">اطلب عبر واتساب</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // === إعدادات ===
+    const WHATSAPP_NUMBER = "9665XXXXXXXX"; // ← بدّل رقمك بصيغة دولية بدون + أو صفر
+    const SIZES = ["S","M","L","XL"];
+
+    // صور سوداء بسيطة (Unsplash) + أسماء وأسعار
+    const PRODUCTS = [
+      // MEN
+      { id:"m1", cat:"men",  name:"Oversize Tee — Rose (Black-on-Black)", price:149, 
+        img:"https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" },
+      { id:"m2", cat:"men",  name:"Oversize Tee — Moon Tone", price:149, 
+        img:"https://images.unsplash.com/photo-1520975922284-7b683db5f3b0?q=80&w=1200&auto=format&fit=crop" },
+      { id:"m3", cat:"men",  name:"Hoodie — Tonal Logo", price:259, 
+        img:"https://images.unsplash.com/photo-1520975960861-834f871fd851?q=80&w=1200&auto=format&fit=crop" },
+      { id:"m4", cat:"men",  name:"Cap — Matte Black", price:99,  
+        img:"https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=1200&auto=format&fit=crop" },
+
+      // WOMEN
+      { id:"w1", cat:"women",  name:"Oversize Tee — Rose (Black-on-Black)", price:149, 
+        img:"https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=1200&auto=format&fit=crop" },
+      { id:"w2", cat:"women",  name:"Cropped Hoodie — Tonal", price:239, 
+        img:"https://images.unsplash.com/photo-1548883354-88a0543f0ead?q=80&w=1200&auto=format&fit=crop" },
+      { id:"w3", cat:"women",  name:"Sweatpants — Deep Black", price:189, 
+        img:"https://images.unsplash.com/photo-1576871337622-98d48d1cf531?q=80&w=1200&auto=format&fit=crop" },
+      { id:"w4", cat:"women",  name:"Cap — Minimal Logo", price:99,  
+        img:"https://images.unsplash.com/photo-1548345680-f5475ea5df84?q=80&w=1200&auto=format&fit=crop" },
+    ];
+
+    const grid = document.getElementById('prodGrid');
+    const productsSection = document.getElementById('products');
+    const catTitle = document.getElementById('catTitle');
+    const hint = document.getElementById('hint');
+
+    function selectCategory(cat){
+      // عنوان
+      catTitle.textContent = (cat === 'men') ? 'رجال' : 'نساء';
+      // بناء الشبكة
+      grid.innerHTML = '';
+      PRODUCTS.filter(p=>p.cat===cat).forEach(p=>{
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="ph"><img src="${p.img}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover"></div>
+          <div class="body">
+            <div class="title">${p.name}</div>
+            <div class="price">${p.price} ر.س</div>
+            <button class="btn" onclick="openModal('${p.id}')">التفاصيل</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+      productsSection.style.display = 'block';
+      hint.style.display = 'none';
+      // تمرير للمنتجات
+      productsSection.scrollIntoView({behavior:'smooth'});
+    }
+
+    // === Modal ===
+    const backdrop = document.getElementById('backdrop');
+    const mTitle = document.getElementById('mTitle');
+    const mImg = document.getElementById('mImg');
+    const mPrice = document.getElementById('mPrice');
+    const sizesEl = document.getElementById('sizes');
+    const waBtn = document.getElementById('waBtn');
+
+    let currentProduct = null;
+    let currentSize = null;
+
+    function openModal(id){
+      const p = PRODUCTS.find(x=>x.id===id);
+      currentProduct = p;
+      currentSize = null;
+
+      mTitle.textContent = p.name;
+      mImg.src = p.img;
+      mPrice.textContent = `${p.price} ر.س`;
+
+      sizesEl.innerHTML = '';
+      SIZES.forEach(s=>{
+        const b = document.createElement('button');
+        b.className = 'size';
+        b.textContent = s;
+        b.onclick = () => {
+          document.querySelectorAll('.size').forEach(x=>x.classList.remove('active'));
+          b.classList.add('active');
+          currentSize = s;
+        };
+        sizesEl.appendChild(b);
+      });
+
+      waBtn.onclick = () => {
+        const sizeText = currentSize ? `، المقاس: ${currentSize}` : '';
+        const msg = `السلام عليكم، أود طلب المنتج: ${p.name}${sizeText} — السعر: ${p.price} ر.س`;
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+      };
+
+      backdrop.style.display = 'grid';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(e){
+      backdrop.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  </script>
+</body>
+</html>
