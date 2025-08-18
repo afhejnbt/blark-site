@@ -1,217 +1,274 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blark</title>
-  <meta name="description" content="Blark – Breathe The Dark">
+  <title>Black 73 — أسلوب أسود بالكامل</title>
+  <meta name="description" content="Black 73 — متجر أزياء مستوحى من الأسلوب الأسود بالكامل. تصميم بسيط، أنيق، مع انتقالات ناعمة وتجربة تسوق سلسة." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0a0a0a; --panel:#0f0f10; --text:#f1f1f1; --muted:#a6a6aa; --line:#1a1a1c; --btn:#141416; --accent:#d9d9dc;
+      --bg:#0a0a0a; --panel:#0f0f10; --muted:#7f7f82; --text:#f6f6f6; --accent:#9e9ea0; --line:#1b1b1d;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0; font-family:'Cairo',system-ui; background:var(--bg); color:var(--text)}
-    img{max-width:100%; display:block}
+    body{margin:0; background:radial-gradient(1200px 600px at 80% -10%,#161616 0%,transparent 60%), var(--bg); color:var(--text); font-family:'Cairo',system-ui,-apple-system,Segoe UI,Roboto;}
     a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}/* Navbar */
+.nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(120%) blur(8px); background:linear-gradient(180deg,rgba(10,10,10,.85),rgba(10,10,10,.6)); border-bottom:1px solid var(--line)}
+.nav-wrap{max-width:1200px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 18px}
+.brand{display:flex; align-items:center; gap:10px}
+.logo{width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,#0f0f10,#1a1a1b); border:1px solid #222}
+.brand b{letter-spacing:1.5px}
+.nav a{opacity:.9}
+.nav a:hover{opacity:1}
+.menu{display:flex; gap:18px; align-items:center}
+.cta{padding:10px 16px; border:1px solid #242427; border-radius:999px; transition:.25s ease; background:linear-gradient(180deg,#121214,#0b0b0c);}
+.cta:hover{transform:translateY(-1px); box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
-    .wrap{max-width:1100px; margin:auto; padding:20px}
-    .hero{padding:56px 0 28px; text-align:center}
-    .brand{display:flex; align-items:center; gap:10px; justify-content:center; margin-bottom:10px}
-    .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#0f0f10,#1b1b1c); border:1px solid #232326}
-    h1{margin:0; letter-spacing:2px; font-size:clamp(26px,6vw,44px)}
-    .tag{color:var(--muted); margin-top:6px; font-size:clamp(14px,2.6vw,16px)}
-    .bar{height:1px; background:var(--line); margin:22px 0}
+/* Hero */
+.hero{position:relative; isolation:isolate; padding:76px 18px 40px}
+.container{max-width:1200px; margin:auto}
+.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px}
+.headline{font-size:clamp(28px,6vw,56px); line-height:1.05; letter-spacing:.5px; margin:0 0 12px}
+.sub{color:var(--muted); max-width:52ch}
+.hero-btns{display:flex; gap:12px; margin-top:22px}
+.btn{padding:12px 16px; border-radius:12px; border:1px solid #232327; background:#101013; transition:.25s}
+.btn.primary{background:linear-gradient(180deg,#1b1b1f,#0e0e10); border-color:#2a2a30}
+.btn:hover{transform:translateY(-1px)}
+.hero-card{position:relative; border:1px solid #1b1b1d; background:linear-gradient(180deg,#0e0e10,#0a0a0a); border-radius:20px; overflow:hidden}
+.hero-media{aspect-ratio:4/5; background:#0d0d0e; display:grid; place-items:center}
+.pill{position:absolute; inset:auto 16px 16px auto; padding:8px 12px; border-radius:999px; font-size:12px; border:1px solid #222; background:#121214; opacity:.9}
 
-    /* Categories */
-    .cats{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:18px 0 8px}
-    .cat{border:1px solid var(--line); background:linear-gradient(180deg,#0e0e10,#0a0a0a); border-radius:14px; padding:18px; text-align:center; font-weight:700; transition:.2s}
-    .cat:hover{transform:translateY(-2px)}
-    .muted{color:var(--muted); font-size:13px}
+/* Marquee */
+.marquee{display:flex; gap:24px; overflow:hidden; border-block:1px solid var(--line); background:linear-gradient(180deg,#0b0b0c,#0a0a0a)}
+.marquee-track{display:flex; gap:24px; min-width:200%; animation:scroll 28s linear infinite}
+.chip{padding:10px 14px; border:1px solid #222; border-radius:999px; color:#bcbcc0; background:#111113; white-space:nowrap}
+@keyframes scroll{to{transform:translateX(-50%)}}
 
-    /* Products */
-    .products{margin-top:14px}
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-    .card{border:1px solid var(--line); background:linear-gradient(180deg,#101012,#0a0a0a); border-radius:14px; overflow:hidden}
-    .ph{aspect-ratio:1/1.1; background:#0c0c0e}
-    .body{padding:12px}
-    .title{font-weight:700}
-    .price{color:var(--accent)}
-    .btn{display:inline-block; padding:10px 12px; border:1px solid #242427; border-radius:12px; background:var(--btn); margin-top:8px}
-    .btn:hover{transform:translateY(-1px)}
+/* Products */
+.section{padding:64px 18px}
+.section h2{font-size:clamp(22px,4.6vw,36px); margin:0 0 8px}
+.muted{color:var(--muted)}
+.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+.card{border:1px solid #1b1b1d; background:linear-gradient(180deg,#101012,#0a0a0a); border-radius:18px; overflow:hidden; position:relative}
+.ph{aspect-ratio:1/1.2; background:linear-gradient(135deg,#0c0c0d,#121214)}
+.tag{position:absolute; top:12px; left:12px; padding:6px 10px; border:1px solid #222; border-radius:999px; font-size:12px; color:#c9c9cc; background:#111113}
+.card-body{padding:14px}
+.title{font-weight:700}
+.price{color:#cfcfd3}
+.actions{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px}
+.ghost{padding:10px 12px; border-radius:12px; border:1px solid #26262a; background:#0d0d0f}
 
-    /* Modal */
-    .modal-backdrop{position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; place-items:center; z-index:50}
-    .modal{width:min(520px,92vw); border:1px solid var(--line); border-radius:16px; background:linear-gradient(180deg,#0f0f11,#0a0a0a); overflow:hidden}
-    .modal-head{display:flex; justify-content:space-between; align-items:center; padding:12px 14px; border-bottom:1px solid var(--line)}
-    .x{background:#141416; border:1px solid #242427; border-radius:10px; padding:6px 10px; cursor:pointer}
-    .modal-media{aspect-ratio:1/1; background:#0d0d0f}
-    .modal-body{padding:14px}
-    .sizes{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0}
-    .size{padding:8px 10px; border:1px solid #2a2a2e; border-radius:10px; cursor:pointer}
-    .size.active{border-color:#4a4a52; background:#141416}
-    .cta{display:block; width:100%; text-align:center; padding:12px; border-radius:12px; background:#131315; border:1px solid #2a2a2e; margin-top:10px}
+/* Black-on-Black showcase */
+.b2b{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+.b2b .tile{border:1px solid #1b1b1d; border-radius:18px; padding:24px; background:conic-gradient(from 180deg at 60% -10%, #0f0f10, #0a0a0a 40%, #0f0f10 60%, #0a0a0a)}
+.swatch{height:180px; border-radius:14px; background:linear-gradient(180deg,#0a0a0a,#0c0c0d); border:1px solid #1f1f22; margin-bottom:12px; position:relative}
+.swatch::after{content:"أسود على أسود — High‑Opacity"; position:absolute; bottom:8px; inset-inline:8px; font-size:12px; color:#bdbdc1; opacity:.85}
 
-    /* Responsive */
-    @media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:580px){ .grid{grid-template-columns:1fr} .cats{grid-template-columns:1fr} }
+/* Lookbook */
+.look{display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px}
+.look .frame{border:1px solid #1b1b1d; border-radius:18px; overflow:hidden; height:100%; background:#0d0d0f}
+.look .tall{grid-row:span 2}
+
+/* Newsletter */
+.newsletter{display:grid; grid-template-columns:2fr 1fr; gap:18px; align-items:center; border:1px solid #1b1b1d; border-radius:18px; padding:18px; background:linear-gradient(180deg,#0c0c0e,#0a0a0a)}
+input[type=email]{width:100%; padding:12px 14px; border-radius:12px; border:1px solid #222; background:#0f0f11; color:var(--text)}
+
+/* Footer */
+footer{border-top:1px solid var(--line); padding:28px 18px; color:#bdbdc1}
+.foot{max-width:1200px; margin:auto; display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:18px}
+.small{font-size:13px; color:#a3a3a8}
+
+/* Reveal animations */
+.reveal{opacity:0; transform:translateY(14px); transition:.6s cubic-bezier(.2,.7,0,1)}
+.reveal.show{opacity:1; transform:none}
+
+/* Responsive */
+@media (max-width:990px){
+  .hero-grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .b2b{grid-template-columns:1fr}
+  .look{grid-template-columns:1fr 1fr}
+  .newsletter{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .look{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+}
+
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- HERO -->
-    <section class="hero">
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-wrap">
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
-        <h1>BLARK</h1>
+        <b>BLACK 73</b>
       </div>
-      <div class="tag">Breathe The Dark</div>
-    </section>
-
-    <div class="bar" aria-hidden="true"></div>
-
-    <!-- CATEGORIES -->
-    <section id="categories">
-      <div class="cats">
-        <button class="cat" onclick="selectCategory('men')">رجال</button>
-        <button class="cat" onclick="selectCategory('women')">نساء</button>
-      </div>
-      <p class="muted" id="hint">اختر قسمًا لعرض المنتجات.</p>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" class="products" style="display:none">
-      <h3 id="catTitle" style="margin:4px 2px 10px"></h3>
-      <div class="grid" id="prodGrid"></div>
-    </section>
-  </div>
-
-  <!-- MODAL -->
-  <div class="modal-backdrop" id="backdrop" onclick="closeModal(event)">
-    <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
-      <div class="modal-head">
-        <strong id="mTitle">اسم المنتج</strong>
-        <button class="x" onclick="closeModal()">إغلاق</button>
-      </div>
-      <div class="modal-media">
-        <img id="mImg" alt="" style="width:100%; height:100%; object-fit:cover">
-      </div>
-      <div class="modal-body">
-        <div class="muted" id="mPrice">—</div>
-        <div class="sizes" id="sizes"></div>
-        <button class="cta" id="waBtn">اطلب عبر واتساب</button>
+      <div class="menu">
+        <a href="#shop">المنتجات</a>
+        <a href="#lookbook">اللوك بوك</a>
+        <a href="#about">عنّا</a>
+        <a class="cta" href="#newsletter">اشترك</a>
       </div>
     </div>
-  </div>
-
-  <script>
-    // === إعدادات ===
-    const WHATSAPP_NUMBER = "9665XXXXXXXX"; // ← بدّل رقمك بصيغة دولية بدون + أو صفر
-    const SIZES = ["S","M","L","XL"];
-
-    // صور سوداء بسيطة (Unsplash) + أسماء وأسعار
-    const PRODUCTS = [
-      // MEN
-      { id:"m1", cat:"men",  name:"Oversize Tee — Rose (Black-on-Black)", price:149, 
-        img:"https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" },
-      { id:"m2", cat:"men",  name:"Oversize Tee — Moon Tone", price:149, 
-        img:"https://images.unsplash.com/photo-1520975922284-7b683db5f3b0?q=80&w=1200&auto=format&fit=crop" },
-      { id:"m3", cat:"men",  name:"Hoodie — Tonal Logo", price:259, 
-        img:"https://images.unsplash.com/photo-1520975960861-834f871fd851?q=80&w=1200&auto=format&fit=crop" },
-      { id:"m4", cat:"men",  name:"Cap — Matte Black", price:99,  
-        img:"https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=1200&auto=format&fit=crop" },
-
-      // WOMEN
-      { id:"w1", cat:"women",  name:"Oversize Tee — Rose (Black-on-Black)", price:149, 
-        img:"https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=1200&auto=format&fit=crop" },
-      { id:"w2", cat:"women",  name:"Cropped Hoodie — Tonal", price:239, 
-        img:"https://images.unsplash.com/photo-1548883354-88a0543f0ead?q=80&w=1200&auto=format&fit=crop" },
-      { id:"w3", cat:"women",  name:"Sweatpants — Deep Black", price:189, 
-        img:"https://images.unsplash.com/photo-1576871337622-98d48d1cf531?q=80&w=1200&auto=format&fit=crop" },
-      { id:"w4", cat:"women",  name:"Cap — Minimal Logo", price:99,  
-        img:"https://images.unsplash.com/photo-1548345680-f5475ea5df84?q=80&w=1200&auto=format&fit=crop" },
-    ];
-
-    const grid = document.getElementById('prodGrid');
-    const productsSection = document.getElementById('products');
-    const catTitle = document.getElementById('catTitle');
-    const hint = document.getElementById('hint');
-
-    function selectCategory(cat){
-      // عنوان
-      catTitle.textContent = (cat === 'men') ? 'رجال' : 'نساء';
-      // بناء الشبكة
-      grid.innerHTML = '';
-      PRODUCTS.filter(p=>p.cat===cat).forEach(p=>{
-        const card = document.createElement('article');
-        card.className = 'card';
-        card.innerHTML = `
-          <div class="ph"><img src="${p.img}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover"></div>
-          <div class="body">
-            <div class="title">${p.name}</div>
-            <div class="price">${p.price} ر.س</div>
-            <button class="btn" onclick="openModal('${p.id}')">التفاصيل</button>
+  </nav>  <!-- HERO -->  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="headline reveal">أسود بالكامل. أسلوبك.</h1>
+        <p class="sub reveal" style="margin-bottom:10px">في Black 73 اخترنا الأسود كلغة للتفاصيل: هدوء مُتقن، لمعة خفيفة، وفارق محسوب — أسود على أسود.
+        </p>
+        <div class="hero-btns reveal">
+          <a class="btn primary" href="#shop">تسوّق الآن</a>
+          <a class="btn" href="#lookbook">اكتشف اللوك بوك</a>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <div class="hero-media">
+          <!-- صورة موديل تجريبية (بدّلها بصورك) -->
+          <img src="https://images.unsplash.com/photo-1520975922284-7b683db5f3b0?q=80&w=1200&auto=format&fit=crop" alt="موديل يرتدي تيشرت أسود" style="height:100%; width:100%; object-fit:cover; object-position:center; filter:contrast(1.05) brightness(.92)">
+        </div>
+        <span class="pill">إصدار محدود — Oversize Tee</span>
+      </div>
+    </div>
+  </header>  <!-- MARQUEE -->  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="chip">Minimal • Monochrome • Bold</span>
+      <span class="chip">أسود على أسود</span>
+      <span class="chip">Oversize Fit</span>
+      <span class="chip">High‑Opacity Ink</span>
+      <span class="chip">Premium Cotton</span>
+      <span class="chip">Street • Luxury</span>
+      <span class="chip">Minimal • Monochrome • Bold</span>
+      <span class="chip">أسود على أسود</span>
+      <span class="chip">Oversize Fit</span>
+      <span class="chip">High‑Opacity Ink</span>
+      <span class="chip">Premium Cotton</span>
+      <span class="chip">Street • Luxury</span>
+    </div>
+  </div>  <!-- PRODUCTS -->  <section id="shop" class="section container">
+    <h2 class="reveal">إصدارات مختارة</h2>
+    <p class="muted reveal">قطع محدودة بتفاصيل سوداء دقيقة — الفارق في الملمس والظل.</p>
+    <div class="grid">
+      <article class="card reveal">
+        <div class="ph"><img alt="تيشرت أسود أوفرسايز" src="https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=1200&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover"></div>
+        <span class="tag">OVERSIZE</span>
+        <div class="card-body">
+          <div class="title">Tee — Black on Black</div>
+          <div class="price">149 ر.س</div>
+          <div class="actions">
+            <button class="ghost">إضافة للسلة</button>
+            <a class="btn" href="#">تفاصيل</a>
           </div>
-        `;
-        grid.appendChild(card);
-      });
-      productsSection.style.display = 'block';
-      hint.style.display = 'none';
-      // تمرير للمنتجات
-      productsSection.scrollIntoView({behavior:'smooth'});
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="ph"><img alt="هودي أسود" src="https://images.unsplash.com/photo-1520975960861-834f871fd851?q=80&w=1200&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover"></div>
+        <span class="tag">LIMITED</span>
+        <div class="card-body">
+          <div class="title">Hoodie — Matte Finish</div>
+          <div class="price">259 ر.س</div>
+          <div class="actions">
+            <button class="ghost">إضافة للسلة</button>
+            <a class="btn" href="#">تفاصيل</a>
+          </div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="ph"><img alt="إكسسوار أسود" src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=1200&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover"></div>
+        <span class="tag">NEW</span>
+        <div class="card-body">
+          <div class="title">Cap — Tonal Logo</div>
+          <div class="price">99 ر.س</div>
+          <div class="actions">
+            <button class="ghost">إضافة للسلة</button>
+            <a class="btn" href="#">تفاصيل</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>  <!-- BLACK‑ON‑BLACK SHOWCASE -->  <section class="section container" id="about">
+    <div class="b2b">
+      <div class="tile reveal">
+        <h2>أسود على أسود — بلمسة محسوبة</h2>
+        <p class="muted">نطبع باستخدام High‑Opacity Black Ink للحصول على فرق طفيف عن القماش الأسود — يظهر في الإضاءة اليومية بدون لمعان مبالغ.</p>
+        <div class="swatch" aria-hidden="true"></div>
+        <p class="small">ملمس مطفي/نصف لامع حسب الإصدار. خامة قطنية مختارة بعناية.</p>
+      </div>
+      <div class="tile reveal">
+        <h2>لماذا الأسود؟</h2>
+        <p class="muted">لأنه لغة الثقة والبساطة. كل تفصيلة مصممة لتخدم الفكرة: هدوء بصري وتأثير يدوم.</p>
+        <ul class="muted" style="line-height:1.9; padding-right:18px; margin:0">
+          <li>هوية أحادية اللون—مرونة عالية في التنسيق.</li>
+          <li>قصّات مريحة بلمسة Street‑Luxury.</li>
+          <li>تفاصيل Tonal تجعل القطعة فريدة عند الاقتراب.</li>
+        </ul>
+      </div>
+    </div>
+  </section>  <!-- LOOKBOOK -->  <section id="lookbook" class="section container">
+    <h2 class="reveal">اللوك بوك</h2>
+    <p class="muted reveal">لقطات من جلساتنا — مزج الظل والملمس لإبراز التفاصيل.</p>
+    <div class="look">
+      <div class="frame tall reveal"><img src="https://images.unsplash.com/photo-1614032686238-3a54a56d0b0e?q=80&w=1200&auto=format&fit=crop" alt="موديل أسود على خلفية داكنة" style="width:100%; height:100%; object-fit:cover"></div>
+      <div class="frame reveal"><img src="https://images.unsplash.com/photo-1520975897602-215a9f2a2f07?q=80&w=1200&auto=format&fit=crop" alt="تفاصيل قماش أسود" style="width:100%; height:100%; object-fit:cover"></div>
+      <div class="frame reveal"><img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop" alt="لقطة إضاءة درامية" style="width:100%; height:100%; object-fit:cover"></div>
+      <div class="frame reveal"><img src="https://images.unsplash.com/photo-1556306535-abccbcb4c9ad?q=80&w=1200&auto=format&fit=crop" alt="تفاصيل شعار أسود" style="width:100%; height:100%; object-fit:cover"></div>
+    </div>
+  </section>  <!-- NEWSLETTER -->  <section id="newsletter" class="section container">
+    <div class="newsletter reveal">
+      <div>
+        <h3 style="margin:0 0 6px">انضم إلى القائمة البريدية</h3>
+        <p class="muted" style="margin:0">إطلاقات محدودة، خصومات خاصة، وأخبار Black 73.</p>
+      </div>
+      <form onsubmit="event.preventDefault(); subscribe();">
+        <label class="small" for="email">بريدك الإلكتروني</label>
+        <div style="display:flex; gap:10px; margin-top:8px">
+          <input id="email" type="email" placeholder="you@example.com" required />
+          <button class="btn primary" type="submit">اشترك</button>
+        </div>
+      </form>
+    </div>
+  </section>  <!-- FOOTER -->  <footer>
+    <div class="foot">
+      <div>
+        <b>BLACK 73</b>
+        <p class="small">هوية سوداء بالكامل — قطع محدودة بطباعة Tonal محسوبة.
+        </p>
+      </div>
+      <div>
+        <div class="small" style="margin-bottom:8px">روابط</div>
+        <a href="#shop" class="small">المنتجات</a><br>
+        <a href="#lookbook" class="small">اللوك بوك</a><br>
+        <a href="#about" class="small">عنّا</a>
+      </div>
+      <div>
+        <div class="small" style="margin-bottom:8px">تواصل</div>
+        <a class="small" href="mailto:hello@black73.com">hello@black73.com</a><br>
+        <a class="small" href="#">Instagram</a>
+      </div>
+    </div>
+    <p class="small" style="margin-top:18px">© <span id="y"></span> Black 73. جميع الحقوق محفوظة.</p>
+  </footer>  <script>
+    // سنة ديناميكية
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // كشف العناصر عند الظهور
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, {threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // اشتراك وهمي
+    function subscribe(){
+      const email = document.getElementById('email').value.trim();
+      if(!email) return;
+      alert('تم الاشتراك ✅');
+      document.getElementById('email').value='';
     }
-
-    // === Modal ===
-    const backdrop = document.getElementById('backdrop');
-    const mTitle = document.getElementById('mTitle');
-    const mImg = document.getElementById('mImg');
-    const mPrice = document.getElementById('mPrice');
-    const sizesEl = document.getElementById('sizes');
-    const waBtn = document.getElementById('waBtn');
-
-    let currentProduct = null;
-    let currentSize = null;
-
-    function openModal(id){
-      const p = PRODUCTS.find(x=>x.id===id);
-      currentProduct = p;
-      currentSize = null;
-
-      mTitle.textContent = p.name;
-      mImg.src = p.img;
-      mPrice.textContent = `${p.price} ر.س`;
-
-      sizesEl.innerHTML = '';
-      SIZES.forEach(s=>{
-        const b = document.createElement('button');
-        b.className = 'size';
-        b.textContent = s;
-        b.onclick = () => {
-          document.querySelectorAll('.size').forEach(x=>x.classList.remove('active'));
-          b.classList.add('active');
-          currentSize = s;
-        };
-        sizesEl.appendChild(b);
-      });
-
-      waBtn.onclick = () => {
-        const sizeText = currentSize ? `، المقاس: ${currentSize}` : '';
-        const msg = `السلام عليكم، أود طلب المنتج: ${p.name}${sizeText} — السعر: ${p.price} ر.س`;
-        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-        window.open(url, '_blank');
-      };
-
-      backdrop.style.display = 'grid';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(e){
-      backdrop.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-  </script>
-</body>
+  </script></body>
 </html>
