@@ -2,174 +2,99 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>BLARK - الصفحة الرئيسية</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BLARK</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #000;
       color: #fff;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #111;
-      padding: 10px 20px;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .menu-btn {
-      font-size: 24px;
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .menu {
-      display: none;
-      flex-direction: column;
-      background-color: #222;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      width: 200px;
-      border-radius: 5px;
-      z-index: 1000;
-    }
-
-    .menu li {
-      list-style: none;
-      padding: 10px;
-    }
-
-    .menu a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .hero {
       text-align: center;
-      padding: 100px 20px;
     }
-
-    .tagline {
-      font-size: 18px;
-      margin-top: 10px;
+    header {
+      padding: 40px 0;
     }
-
-    .sections {
-      margin-top: 40px;
+    header img {
+      width: 120px;
     }
-
-    .section-btn {
+    h1 {
+      font-size: 28px;
+      margin: 10px 0;
+      font-weight: normal;
+    }
+    .buttons {
+      margin: 30px 0;
+    }
+    .buttons a {
       display: inline-block;
       margin: 10px;
-      padding: 15px 30px;
-      background-color: #222;
-      color: #fff;
+      padding: 12px 24px;
+      background-color: #fff;
+      color: #000;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
+      font-weight: bold;
     }
-
-    .page-title {
-      text-align: center;
-      margin: 40px 0 20px;
-    }
-
-    .product-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-      padding: 20px;
-    }
-
-    .product img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-    }
-
-    .product p {
-      margin-top: 10px;
-      font-size: 16px;
-    }
-
-    .whatsapp-btn {
-      margin-top: 10px;
-      display: inline-block;
-      background-color: #25D366;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
+    footer {
+      background-color: #111;
+      padding: 30px 0;
       font-size: 14px;
     }
-
-    .about {
-      padding: 40px 20px;
-      text-align: center;
-      line-height: 1.8;
+    .footer-section {
+      margin-bottom: 15px;
+    }
+    .footer-section a {
+      color: #aaa;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    .footer-icons img {
+      width: 24px;
+      margin: 0 6px;
+      vertical-align: middle;
+    }
+    .footer-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #666;
     }
   </style>
 </head>
 <body>
 
-  <!-- القائمة الجانبية -->
-  <nav class="navbar">
-    <div class="logo">BLARK</div>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <ul class="menu" id="menu">
-      <li><a href="#">الرئيسية</a></li>
-      <li><a href="#men">رجال</a></li>
-      <li><a href="#women">نساء</a></li>
-      <li><a href="#about">من نحن</a></li>
-      <li><a href="#contact">تواصل معنا</a></li>
-    </ul>
-  </nav>
-
-  <!-- المحتوى الرئيسي -->
-  <header class="hero">
-    <h1>BLARK</h1>
-    <p class="tagline">الأسود هو الهوية</p>
-    <div class="sections">
-      <a href="#men" class="section-btn">رجال</a>
-      <a href="#women" class="section-btn">نساء</a>
-    </div>
+  <header>
+    <img src="logo.png" alt="شعار BLARK">
+    <h1>الهوية السوداء، بأسلوب مختلف</h1>
   </header>
 
-  <!-- منتجات الرجال -->
-  <section id="men">
-    <h2 class="page-title">منتجات الرجال</h2>
-    <div class="product-list">
-      <div class="product">
-        <img src="images/1.jpg" alt="جمجمة">
-        <p>تيشيرت الجمجمة</p>
-        <a class="whatsapp-btn" href="https://wa.me/966XXXXXXXXX?text=أرغب في طلب تيشيرت الجمجمة من BLARK">طلب عبر واتساب</a>
-      </div>
-      <div class="product">
-        <img src="images/2.jpg" alt="وردة">
-        <p>تيشيرت الوردة</p>
-        <a class="whatsapp-btn" href="https://wa.me/966XXXXXXXXX?text=أرغب في طلب تيشيرت الوردة من BLARK">طلب عبر واتساب</a>
-      </div>
-      <div class="product">
-        <img src="images/3.jpg" alt="خفاش">
-        <p>تيشيرت الخفاش</p>
-        <a class="whatsapp-btn" href="https://wa.me/966XXXXXXXXX?text=أرغب في طلب تيشيرت الخفاش من BLARK">طلب عبر واتساب</a>
+  <div class="buttons">
+    <a href="men.html">رجالي</a>
+    <a href="women.html">نسائي</a>
+  </div>
+
+  <footer>
+    <div class="footer-section">
+      <a href="about.html">من نحن</a>
+    </div>
+    <div class="footer-section">
+      <span>تواصل معنا</span><br>
+      <div class="footer-icons">
+        <a href="https://wa.me/966XXXXXXXXX" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب">
+        </a>
+        <a href="https://www.instagram.com/blark_brand" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="إنستغرام">
+        </a>
       </div>
     </div>
-  </section>
+    <div class="footer-section">
+      <a href="#">تابعونا</a>
+    </div>
+    <div class="footer-note">
+      جميع الحقوق محفوظة © BLARK 2025
+    </div>
+  </footer>
 
-  <!-- منتجات النساء -->
-  <section id="women">
-    <h2 class="page-title">منتجات النساء</h2>
-    <div class="product-list">
+</body>
+</html>
