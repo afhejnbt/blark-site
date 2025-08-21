@@ -1,274 +1,132 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Black 73 — أسلوب أسود بالكامل</title>
-  <meta name="description" content="Black 73 — متجر أزياء مستوحى من الأسلوب الأسود بالكامل. تصميم بسيط، أنيق، مع انتقالات ناعمة وتجربة تسوق سلسة." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BLARK</title>
   <style>
-    :root{
-      --bg:#0a0a0a; --panel:#0f0f10; --muted:#7f7f82; --text:#f6f6f6; --accent:#9e9ea0; --line:#1b1b1d;
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0; background:radial-gradient(1200px 600px at 80% -10%,#161616 0%,transparent 60%), var(--bg); color:var(--text); font-family:'Cairo',system-ui,-apple-system,Segoe UI,Roboto;}
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}/* Navbar */
-.nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(120%) blur(8px); background:linear-gradient(180deg,rgba(10,10,10,.85),rgba(10,10,10,.6)); border-bottom:1px solid var(--line)}
-.nav-wrap{max-width:1200px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 18px}
-.brand{display:flex; align-items:center; gap:10px}
-.logo{width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,#0f0f10,#1a1a1b); border:1px solid #222}
-.brand b{letter-spacing:1.5px}
-.nav a{opacity:.9}
-.nav a:hover{opacity:1}
-.menu{display:flex; gap:18px; align-items:center}
-.cta{padding:10px 16px; border:1px solid #242427; border-radius:999px; transition:.25s ease; background:linear-gradient(180deg,#121214,#0b0b0c);}
-.cta:hover{transform:translateY(-1px); box-shadow:0 10px 30px rgba(0,0,0,.35)}
-
-/* Hero */
-.hero{position:relative; isolation:isolate; padding:76px 18px 40px}
-.container{max-width:1200px; margin:auto}
-.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px}
-.headline{font-size:clamp(28px,6vw,56px); line-height:1.05; letter-spacing:.5px; margin:0 0 12px}
-.sub{color:var(--muted); max-width:52ch}
-.hero-btns{display:flex; gap:12px; margin-top:22px}
-.btn{padding:12px 16px; border-radius:12px; border:1px solid #232327; background:#101013; transition:.25s}
-.btn.primary{background:linear-gradient(180deg,#1b1b1f,#0e0e10); border-color:#2a2a30}
-.btn:hover{transform:translateY(-1px)}
-.hero-card{position:relative; border:1px solid #1b1b1d; background:linear-gradient(180deg,#0e0e10,#0a0a0a); border-radius:20px; overflow:hidden}
-.hero-media{aspect-ratio:4/5; background:#0d0d0e; display:grid; place-items:center}
-.pill{position:absolute; inset:auto 16px 16px auto; padding:8px 12px; border-radius:999px; font-size:12px; border:1px solid #222; background:#121214; opacity:.9}
-
-/* Marquee */
-.marquee{display:flex; gap:24px; overflow:hidden; border-block:1px solid var(--line); background:linear-gradient(180deg,#0b0b0c,#0a0a0a)}
-.marquee-track{display:flex; gap:24px; min-width:200%; animation:scroll 28s linear infinite}
-.chip{padding:10px 14px; border:1px solid #222; border-radius:999px; color:#bcbcc0; background:#111113; white-space:nowrap}
-@keyframes scroll{to{transform:translateX(-50%)}}
-
-/* Products */
-.section{padding:64px 18px}
-.section h2{font-size:clamp(22px,4.6vw,36px); margin:0 0 8px}
-.muted{color:var(--muted)}
-.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-.card{border:1px solid #1b1b1d; background:linear-gradient(180deg,#101012,#0a0a0a); border-radius:18px; overflow:hidden; position:relative}
-.ph{aspect-ratio:1/1.2; background:linear-gradient(135deg,#0c0c0d,#121214)}
-.tag{position:absolute; top:12px; left:12px; padding:6px 10px; border:1px solid #222; border-radius:999px; font-size:12px; color:#c9c9cc; background:#111113}
-.card-body{padding:14px}
-.title{font-weight:700}
-.price{color:#cfcfd3}
-.actions{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px}
-.ghost{padding:10px 12px; border-radius:12px; border:1px solid #26262a; background:#0d0d0f}
-
-/* Black-on-Black showcase */
-.b2b{display:grid; grid-template-columns:1fr 1fr; gap:22px}
-.b2b .tile{border:1px solid #1b1b1d; border-radius:18px; padding:24px; background:conic-gradient(from 180deg at 60% -10%, #0f0f10, #0a0a0a 40%, #0f0f10 60%, #0a0a0a)}
-.swatch{height:180px; border-radius:14px; background:linear-gradient(180deg,#0a0a0a,#0c0c0d); border:1px solid #1f1f22; margin-bottom:12px; position:relative}
-.swatch::after{content:"أسود على أسود — High‑Opacity"; position:absolute; bottom:8px; inset-inline:8px; font-size:12px; color:#bdbdc1; opacity:.85}
-
-/* Lookbook */
-.look{display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px}
-.look .frame{border:1px solid #1b1b1d; border-radius:18px; overflow:hidden; height:100%; background:#0d0d0f}
-.look .tall{grid-row:span 2}
-
-/* Newsletter */
-.newsletter{display:grid; grid-template-columns:2fr 1fr; gap:18px; align-items:center; border:1px solid #1b1b1d; border-radius:18px; padding:18px; background:linear-gradient(180deg,#0c0c0e,#0a0a0a)}
-input[type=email]{width:100%; padding:12px 14px; border-radius:12px; border:1px solid #222; background:#0f0f11; color:var(--text)}
-
-/* Footer */
-footer{border-top:1px solid var(--line); padding:28px 18px; color:#bdbdc1}
-.foot{max-width:1200px; margin:auto; display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:18px}
-.small{font-size:13px; color:#a3a3a8}
-
-/* Reveal animations */
-.reveal{opacity:0; transform:translateY(14px); transition:.6s cubic-bezier(.2,.7,0,1)}
-.reveal.show{opacity:1; transform:none}
-
-/* Responsive */
-@media (max-width:990px){
-  .hero-grid{grid-template-columns:1fr}
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .b2b{grid-template-columns:1fr}
-  .look{grid-template-columns:1fr 1fr}
-  .newsletter{grid-template-columns:1fr}
-  .foot{grid-template-columns:1fr 1fr}
-}
-@media (max-width:640px){
-  .grid{grid-template-columns:1fr}
-  .look{grid-template-columns:1fr}
-  .foot{grid-template-columns:1fr}
-}
-
+    header, footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #000;
+    }
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+      color: #fff;
+    }
+    header p {
+      font-size: 16px;
+      color: #aaa;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .product {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 6px;
+    }
+    .product h2 {
+      font-size: 18px;
+      margin: 10px 0;
+      color: #fff;
+    }
+    .product p {
+      font-size: 16px;
+      color: #ccc;
+    }
+    .product a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #444;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .offer {
+      background-color: #222;
+      padding: 20px;
+      text-align: center;
+    }
+    .offer h3 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .offer p {
+      color: #ccc;
+      font-size: 16px;
+    }
+    .about {
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #ccc;
+      line-height: 1.8;
+    }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-wrap">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <b>BLACK 73</b>
-      </div>
-      <div class="menu">
-        <a href="#shop">المنتجات</a>
-        <a href="#lookbook">اللوك بوك</a>
-        <a href="#about">عنّا</a>
-        <a class="cta" href="#newsletter">اشترك</a>
-      </div>
-    </div>
-  </nav>  <!-- HERO -->  <header class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1 class="headline reveal">أسود بالكامل. أسلوبك.</h1>
-        <p class="sub reveal" style="margin-bottom:10px">في Black 73 اخترنا الأسود كلغة للتفاصيل: هدوء مُتقن، لمعة خفيفة، وفارق محسوب — أسود على أسود.
-        </p>
-        <div class="hero-btns reveal">
-          <a class="btn primary" href="#shop">تسوّق الآن</a>
-          <a class="btn" href="#lookbook">اكتشف اللوك بوك</a>
-        </div>
-      </div>
-      <div class="hero-card reveal">
-        <div class="hero-media">
-          <!-- صورة موديل تجريبية (بدّلها بصورك) -->
-          <img src="https://images.unsplash.com/photo-1520975922284-7b683db5f3b0?q=80&w=1200&auto=format&fit=crop" alt="موديل يرتدي تيشرت أسود" style="height:100%; width:100%; object-fit:cover; object-position:center; filter:contrast(1.05) brightness(.92)">
-        </div>
-        <span class="pill">إصدار محدود — Oversize Tee</span>
-      </div>
-    </div>
-  </header>  <!-- MARQUEE -->  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="chip">Minimal • Monochrome • Bold</span>
-      <span class="chip">أسود على أسود</span>
-      <span class="chip">Oversize Fit</span>
-      <span class="chip">High‑Opacity Ink</span>
-      <span class="chip">Premium Cotton</span>
-      <span class="chip">Street • Luxury</span>
-      <span class="chip">Minimal • Monochrome • Bold</span>
-      <span class="chip">أسود على أسود</span>
-      <span class="chip">Oversize Fit</span>
-      <span class="chip">High‑Opacity Ink</span>
-      <span class="chip">Premium Cotton</span>
-      <span class="chip">Street • Luxury</span>
-    </div>
-  </div>  <!-- PRODUCTS -->  <section id="shop" class="section container">
-    <h2 class="reveal">إصدارات مختارة</h2>
-    <p class="muted reveal">قطع محدودة بتفاصيل سوداء دقيقة — الفارق في الملمس والظل.</p>
-    <div class="grid">
-      <article class="card reveal">
-        <div class="ph"><img alt="تيشرت أسود أوفرسايز" src="https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=1200&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover"></div>
-        <span class="tag">OVERSIZE</span>
-        <div class="card-body">
-          <div class="title">Tee — Black on Black</div>
-          <div class="price">149 ر.س</div>
-          <div class="actions">
-            <button class="ghost">إضافة للسلة</button>
-            <a class="btn" href="#">تفاصيل</a>
-          </div>
-        </div>
-      </article>
-      <article class="card reveal">
-        <div class="ph"><img alt="هودي أسود" src="https://images.unsplash.com/photo-1520975960861-834f871fd851?q=80&w=1200&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover"></div>
-        <span class="tag">LIMITED</span>
-        <div class="card-body">
-          <div class="title">Hoodie — Matte Finish</div>
-          <div class="price">259 ر.س</div>
-          <div class="actions">
-            <button class="ghost">إضافة للسلة</button>
-            <a class="btn" href="#">تفاصيل</a>
-          </div>
-        </div>
-      </article>
-      <article class="card reveal">
-        <div class="ph"><img alt="إكسسوار أسود" src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=1200&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover"></div>
-        <span class="tag">NEW</span>
-        <div class="card-body">
-          <div class="title">Cap — Tonal Logo</div>
-          <div class="price">99 ر.س</div>
-          <div class="actions">
-            <button class="ghost">إضافة للسلة</button>
-            <a class="btn" href="#">تفاصيل</a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>  <!-- BLACK‑ON‑BLACK SHOWCASE -->  <section class="section container" id="about">
-    <div class="b2b">
-      <div class="tile reveal">
-        <h2>أسود على أسود — بلمسة محسوبة</h2>
-        <p class="muted">نطبع باستخدام High‑Opacity Black Ink للحصول على فرق طفيف عن القماش الأسود — يظهر في الإضاءة اليومية بدون لمعان مبالغ.</p>
-        <div class="swatch" aria-hidden="true"></div>
-        <p class="small">ملمس مطفي/نصف لامع حسب الإصدار. خامة قطنية مختارة بعناية.</p>
-      </div>
-      <div class="tile reveal">
-        <h2>لماذا الأسود؟</h2>
-        <p class="muted">لأنه لغة الثقة والبساطة. كل تفصيلة مصممة لتخدم الفكرة: هدوء بصري وتأثير يدوم.</p>
-        <ul class="muted" style="line-height:1.9; padding-right:18px; margin:0">
-          <li>هوية أحادية اللون—مرونة عالية في التنسيق.</li>
-          <li>قصّات مريحة بلمسة Street‑Luxury.</li>
-          <li>تفاصيل Tonal تجعل القطعة فريدة عند الاقتراب.</li>
-        </ul>
-      </div>
-    </div>
-  </section>  <!-- LOOKBOOK -->  <section id="lookbook" class="section container">
-    <h2 class="reveal">اللوك بوك</h2>
-    <p class="muted reveal">لقطات من جلساتنا — مزج الظل والملمس لإبراز التفاصيل.</p>
-    <div class="look">
-      <div class="frame tall reveal"><img src="https://images.unsplash.com/photo-1614032686238-3a54a56d0b0e?q=80&w=1200&auto=format&fit=crop" alt="موديل أسود على خلفية داكنة" style="width:100%; height:100%; object-fit:cover"></div>
-      <div class="frame reveal"><img src="https://images.unsplash.com/photo-1520975897602-215a9f2a2f07?q=80&w=1200&auto=format&fit=crop" alt="تفاصيل قماش أسود" style="width:100%; height:100%; object-fit:cover"></div>
-      <div class="frame reveal"><img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop" alt="لقطة إضاءة درامية" style="width:100%; height:100%; object-fit:cover"></div>
-      <div class="frame reveal"><img src="https://images.unsplash.com/photo-1556306535-abccbcb4c9ad?q=80&w=1200&auto=format&fit=crop" alt="تفاصيل شعار أسود" style="width:100%; height:100%; object-fit:cover"></div>
-    </div>
-  </section>  <!-- NEWSLETTER -->  <section id="newsletter" class="section container">
-    <div class="newsletter reveal">
-      <div>
-        <h3 style="margin:0 0 6px">انضم إلى القائمة البريدية</h3>
-        <p class="muted" style="margin:0">إطلاقات محدودة، خصومات خاصة، وأخبار Black 73.</p>
-      </div>
-      <form onsubmit="event.preventDefault(); subscribe();">
-        <label class="small" for="email">بريدك الإلكتروني</label>
-        <div style="display:flex; gap:10px; margin-top:8px">
-          <input id="email" type="email" placeholder="you@example.com" required />
-          <button class="btn primary" type="submit">اشترك</button>
-        </div>
-      </form>
-    </div>
-  </section>  <!-- FOOTER -->  <footer>
-    <div class="foot">
-      <div>
-        <b>BLACK 73</b>
-        <p class="small">هوية سوداء بالكامل — قطع محدودة بطباعة Tonal محسوبة.
-        </p>
-      </div>
-      <div>
-        <div class="small" style="margin-bottom:8px">روابط</div>
-        <a href="#shop" class="small">المنتجات</a><br>
-        <a href="#lookbook" class="small">اللوك بوك</a><br>
-        <a href="#about" class="small">عنّا</a>
-      </div>
-      <div>
-        <div class="small" style="margin-bottom:8px">تواصل</div>
-        <a class="small" href="mailto:hello@black73.com">hello@black73.com</a><br>
-        <a class="small" href="#">Instagram</a>
-      </div>
-    </div>
-    <p class="small" style="margin-top:18px">© <span id="y"></span> Black 73. جميع الحقوق محفوظة.</p>
-  </footer>  <script>
-    // سنة ديناميكية
-    document.getElementById('y').textContent = new Date().getFullYear();
 
-    // كشف العناصر عند الظهور
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
-    }, {threshold:.15});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+<header>
+  <h1>BLARK</h1>
+  <p>Not just a color, but a lifestyle</p>
+</header>
 
-    // اشتراك وهمي
-    function subscribe(){
-      const email = document.getElementById('email').value.trim();
-      if(!email) return;
-      alert('تم الاشتراك ✅');
-      document.getElementById('email').value='';
-    }
-  </script></body>
+<section class="products">
+  <div class="product">
+    <img src="bat-shirt.jpg" alt="تيشيرت الوطواط">
+    <h2>تيشيرت الوطواط</h2>
+    <p>السعر: 53 ريال</p>
+    <a href="https://wa.me/966556955480?text=أرغب بطلب تيشيرت الوطواط بمقاس M">اطلب الآن</a>
+  </div>
+  <div class="product">
+    <img src="rose-shirt.jpg" alt="تيشيرت الوردة السوداء">
+    <h2>تيشيرت الوردة السوداء</h2>
+    <p>السعر: 53 ريال</p>
+    <a href="https://wa.me/966556955480?text=أرغب بطلب تيشيرت الوردة السوداء بمقاس M">اطلب الآن</a>
+  </div>
+  <div class="product">
+    <img src="skull-shirt.jpg" alt="تيشيرت الجمجمة الداكنة">
+    <h2>تيشيرت الجمجمة الداكنة</h2>
+    <p>السعر: 53 ريال</p>
+    <a href="https://wa.me/966556955480?text=أرغب بطلب تيشيرت الجمجمة الداكنة بمقاس M">اطلب الآن</a>
+  </div>
+</section>
+
+<section class="offer">
+  <h3>عرض خاص</h3>
+  <p>اشتر قطعتين بـ 76 ريال فقط<br>السعر لا يشمل الشحن – يُحسب حسب المدينة</p>
+</section>
+
+<section class="about">
+  <h2>من نحن</h2>
+  <p>
+    في BLARK، اخترنا اللون الأسود كهوية ثابتة وأسلوب حياة، لأنه يرمز للقوة، والأناقة، والغموض.<br>
+    نؤمن أن الأسود ليس مجرد لون؛ بل هو لغة تعبّر عن التفرّد والتميّز.<br>
+    كل قطعة نُصممها أو نختارها بعناية تعكس هذا المفهوم، وتمنحك إحساسًا بالثقة والفخامة في كل مناسبة.<br>
+    مع BLARK، أنت لا ترتدي مجرد ملابس... بل ترتدي أسلوبك الخاص.
+  </p>
+</section>
+
+<footer>
+  <p>للطلب عبر واتساب: <a href="https://wa.me/966556955480">0556955480</a></p>
+</footer>
+
+</body>
 </html>
