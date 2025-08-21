@@ -2,131 +2,174 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BLARK</title>
+  <title>BLARK - الصفحة الرئيسية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      background-color: #111;
-      color: #eee;
+      margin: 0;
       font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header, footer {
-      text-align: center;
-      padding: 20px;
       background-color: #000;
-    }
-    header h1 {
-      font-size: 36px;
-      margin: 0;
       color: #fff;
     }
-    header p {
-      font-size: 16px;
-      color: #aaa;
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #111;
+      padding: 10px 20px;
     }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
     }
-    .product {
-      background-color: #1a1a1a;
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-    }
-    .product img {
-      width: 100%;
-      border-radius: 6px;
-    }
-    .product h2 {
-      font-size: 18px;
-      margin: 10px 0;
+
+    .menu-btn {
+      font-size: 24px;
+      background: none;
+      border: none;
       color: #fff;
+      cursor: pointer;
     }
-    .product p {
-      font-size: 16px;
-      color: #ccc;
+
+    .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #222;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      width: 200px;
+      border-radius: 5px;
+      z-index: 1000;
     }
-    .product a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #444;
+
+    .menu li {
+      list-style: none;
+      padding: 10px;
+    }
+
+    .menu a {
       color: #fff;
       text-decoration: none;
-      border-radius: 4px;
     }
-    .offer {
-      background-color: #222;
-      padding: 20px;
+
+    .hero {
       text-align: center;
+      padding: 100px 20px;
     }
-    .offer h3 {
+
+    .tagline {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .sections {
+      margin-top: 40px;
+    }
+
+    .section-btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      background-color: #222;
       color: #fff;
-      margin-bottom: 10px;
+      text-decoration: none;
+      border-radius: 5px;
     }
-    .offer p {
-      color: #ccc;
+
+    .page-title {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .product-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .product img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .product p {
+      margin-top: 10px;
       font-size: 16px;
     }
+
+    .whatsapp-btn {
+      margin-top: 10px;
+      display: inline-block;
+      background-color: #25D366;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
     .about {
-      padding: 20px;
-      background-color: #1a1a1a;
-      color: #ccc;
+      padding: 40px 20px;
+      text-align: center;
       line-height: 1.8;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>BLARK</h1>
-  <p>Not just a color, but a lifestyle</p>
-</header>
+  <!-- القائمة الجانبية -->
+  <nav class="navbar">
+    <div class="logo">BLARK</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="#">الرئيسية</a></li>
+      <li><a href="#men">رجال</a></li>
+      <li><a href="#women">نساء</a></li>
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="#contact">تواصل معنا</a></li>
+    </ul>
+  </nav>
 
-<section class="products">
-  <div class="product">
-    <img src="bat-shirt.jpg" alt="تيشيرت الوطواط">
-    <h2>تيشيرت الوطواط</h2>
-    <p>السعر: 53 ريال</p>
-    <a href="https://wa.me/966556955480?text=أرغب بطلب تيشيرت الوطواط بمقاس M">اطلب الآن</a>
-  </div>
-  <div class="product">
-    <img src="rose-shirt.jpg" alt="تيشيرت الوردة السوداء">
-    <h2>تيشيرت الوردة السوداء</h2>
-    <p>السعر: 53 ريال</p>
-    <a href="https://wa.me/966556955480?text=أرغب بطلب تيشيرت الوردة السوداء بمقاس M">اطلب الآن</a>
-  </div>
-  <div class="product">
-    <img src="skull-shirt.jpg" alt="تيشيرت الجمجمة الداكنة">
-    <h2>تيشيرت الجمجمة الداكنة</h2>
-    <p>السعر: 53 ريال</p>
-    <a href="https://wa.me/966556955480?text=أرغب بطلب تيشيرت الجمجمة الداكنة بمقاس M">اطلب الآن</a>
-  </div>
-</section>
+  <!-- المحتوى الرئيسي -->
+  <header class="hero">
+    <h1>BLARK</h1>
+    <p class="tagline">الأسود هو الهوية</p>
+    <div class="sections">
+      <a href="#men" class="section-btn">رجال</a>
+      <a href="#women" class="section-btn">نساء</a>
+    </div>
+  </header>
 
-<section class="offer">
-  <h3>عرض خاص</h3>
-  <p>اشتر قطعتين بـ 76 ريال فقط<br>السعر لا يشمل الشحن – يُحسب حسب المدينة</p>
-</section>
+  <!-- منتجات الرجال -->
+  <section id="men">
+    <h2 class="page-title">منتجات الرجال</h2>
+    <div class="product-list">
+      <div class="product">
+        <img src="images/1.jpg" alt="جمجمة">
+        <p>تيشيرت الجمجمة</p>
+        <a class="whatsapp-btn" href="https://wa.me/966XXXXXXXXX?text=أرغب في طلب تيشيرت الجمجمة من BLARK">طلب عبر واتساب</a>
+      </div>
+      <div class="product">
+        <img src="images/2.jpg" alt="وردة">
+        <p>تيشيرت الوردة</p>
+        <a class="whatsapp-btn" href="https://wa.me/966XXXXXXXXX?text=أرغب في طلب تيشيرت الوردة من BLARK">طلب عبر واتساب</a>
+      </div>
+      <div class="product">
+        <img src="images/3.jpg" alt="خفاش">
+        <p>تيشيرت الخفاش</p>
+        <a class="whatsapp-btn" href="https://wa.me/966XXXXXXXXX?text=أرغب في طلب تيشيرت الخفاش من BLARK">طلب عبر واتساب</a>
+      </div>
+    </div>
+  </section>
 
-<section class="about">
-  <h2>من نحن</h2>
-  <p>
-    في BLARK، اخترنا اللون الأسود كهوية ثابتة وأسلوب حياة، لأنه يرمز للقوة، والأناقة، والغموض.<br>
-    نؤمن أن الأسود ليس مجرد لون؛ بل هو لغة تعبّر عن التفرّد والتميّز.<br>
-    كل قطعة نُصممها أو نختارها بعناية تعكس هذا المفهوم، وتمنحك إحساسًا بالثقة والفخامة في كل مناسبة.<br>
-    مع BLARK، أنت لا ترتدي مجرد ملابس... بل ترتدي أسلوبك الخاص.
-  </p>
-</section>
-
-<footer>
-  <p>للطلب عبر واتساب: <a href="https://wa.me/966556955480">0556955480</a></p>
-</footer>
-
-</body>
-</html>
+  <!-- منتجات النساء -->
+  <section id="women">
+    <h2 class="page-title">منتجات النساء</h2>
+    <div class="product-list">
